@@ -62,8 +62,24 @@ if [[ $action == validator || $action == bench ]]; then
 fi
 
 case "$action" in
-  build|init-ledger)
-    exec bash "$root/agave/packaging/junction-qat/$action.sh"
+  build)
+    exec bash "$root/agave/packaging/junction-qat/build.sh"
+    ;;
+  init-ledger)
+    bash "$root/agave/packaging/junction-qat/init-ledger.sh"
+    # Genesis has exited successfully; do not unlink a lock on validator start.
+    lock="$root/agave/config/bootstrap-validator/rocksdb/LOCK"
+    if [[ -e $lock || -L $lock ]]; then
+      [[ -f $lock && ! -L $lock ]] || {
+        echo "Refusing to remove non-regular RocksDB lock: $lock" >&2
+        exit 1
+      }
+      if command -v fuser >/dev/null 2>&1 && fuser -s "$lock"; then
+        echo "Refusing to remove an open RocksDB lock: $lock" >&2
+        exit 1
+      fi
+      rm -- "$lock"
+    fi
     ;;
   validator|bench)
     exec bash "$root/agave/packaging/junction-qat/run-junction.sh" "$action"

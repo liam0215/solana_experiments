@@ -31,8 +31,7 @@ the whole source set.
 
 Build the included `qat_driver` submodule for the host following its own
 setup instructions. Its generated `qat_driver/build/include/` and
-`qat_driver/build/libqat_s.so` must exist. Provision the QAT hardware,
-Junction/Caladan, networking, permissions, and `/usr/bin/fish` separately.
+`qat_driver/build/libqat_s.so` must exist.
 
 `configs/validator.config` and `configs/bench.config` are copies of the
 original validator/bench Junction configs. They are the **default paths** for
@@ -57,6 +56,9 @@ the host:
 bash workspace.sh build
 bash workspace.sh init-ledger  # fresh clone only; refuses existing agave/config/
 ```
+
+After genesis completes successfully, the parent launcher removes the
+new ledger's `agave/config/bootstrap-validator/rocksdb/LOCK` file if present.
 
 Before launching, set the external Junction executable (either export
 `JUNCTION_RUN` or copy `workspace.env.example` to ignored `workspace.env`
