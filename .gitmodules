@@ -1,0 +1,28 @@
+[submodule "agave"]
+	path = agave
+	url = git@github.com:liam0215/agave.git
+	branch = caladan_runtime
+[submodule "solana-sdk"]
+	path = solana-sdk
+	url = git@github.com:liam0215/solana-sdk.git
+	branch = qat
+[submodule "ed25519-dalek"]
+	path = ed25519-dalek
+	url = git@github.com:liam0215/ed25519-dalek.git
+	branch = qat_integration
+[submodule "ed25519-dalek-bip32"]
+	path = ed25519-dalek-bip32
+	url = git@github.com:liam0215/ed25519-dalek-bip32.git
+	branch = junction-qat-handoff
+[submodule "curve25519-dalek"]
+	path = curve25519-dalek
+	url = git@github.com:liam0215/curve25519-dalek.git
+	branch = qat_integration
+[submodule "qat-shim"]
+	path = qat-shim
+	url = git@github.com:liam0215/qat-shim.git
+	branch = master
+[submodule "qat_driver"]
+	path = qat_driver
+	url = git@github.com:liam0215/qatlib_oot.git
+	branch = export_eddsa
