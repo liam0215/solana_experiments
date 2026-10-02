@@ -63,9 +63,8 @@ Never share the generated `agave/config/` keypairs. The older run/sweep
 scripts in Agave and the results repository are historical and contain
 machine-specific paths and cleanup commands.
 
-**Publishing order:** The driver Gitlink now points to local commit
-`95b79b8` on `export_eddsa`. Push that driver commit to its fork **before**
-publishing this parent repository, or fresh recursive clones cannot fetch it.
-The parent repository has no remote yet. No Junction runtime test has been
-performed from this new parent checkout; the prior successful run was from
-the original development working trees.
+The driver Gitlink points to `95b79b8` on `export_eddsa`, available from
+`git@github.com:liam0215/qatlib_oot.git`. The parent repository has no
+remote yet; publish it to share one recursive-clone entry point. No Junction
+runtime test has been performed from this new parent checkout; the prior
+successful run was from the original development working trees.
