@@ -1,4 +1,4 @@
-# Agave + QAT source workspace
+# Solana experiments: Agave + QAT source workspace
 
 This parent repository groups the modified Agave and QAT sources as sibling
 Git submodules. The directory names matter: Cargo uses relative paths such
@@ -20,8 +20,8 @@ binaries are not included.
 ## Clone and prepare the host
 
 ```bash
-git clone --recurse-submodules <parent-repo-url> agave-junction-qat
-cd agave-junction-qat
+git clone --recurse-submodules <parent-repo-url> solana_experiments
+cd solana_experiments
 git submodule status
 ```
 
