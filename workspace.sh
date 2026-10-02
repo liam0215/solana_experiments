@@ -33,6 +33,18 @@ export JUNCTION_VALIDATOR_CONFIG="${JUNCTION_VALIDATOR_CONFIG:-$root/configs/val
 export JUNCTION_BENCH_CONFIG="${JUNCTION_BENCH_CONFIG:-$root/configs/bench.config}"
 
 if [[ $action == validator || $action == bench ]]; then
+  [[ -x ${JUNCTION_RUN:-} && ! -d ${JUNCTION_RUN:-} ]] || {
+    echo "Missing executable junction_run: ${JUNCTION_RUN:-<set JUNCTION_RUN in workspace.env>}" >&2
+    exit 1
+  }
+  [[ -f $QATLIB_BUILD/libqat_s.so ]] || {
+    echo "Missing QAT driver library: $QATLIB_BUILD/libqat_s.so" >&2
+    exit 1
+  }
+  [[ -x /usr/bin/fish ]] || {
+    echo "Missing /usr/bin/fish" >&2
+    exit 1
+  }
   [[ -f $JUNCTION_VALIDATOR_CONFIG ]] || {
     echo "Missing validator Junction config: $JUNCTION_VALIDATOR_CONFIG" >&2
     exit 1
