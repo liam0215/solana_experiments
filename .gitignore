@@ -1,2 +1,4 @@
 /workspace.env
 /configs/local/
+/results/
+/__pycache__/

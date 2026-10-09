@@ -1,0 +1,26 @@
+version = 1
+name = "two-validators-12"
+validator_count = 2
+hosts = ["192.168.120.7", "192.168.120.9"]
+
+[validator]
+template = "configs/validator.config"
+runtime_kthreads = 12
+banking_threads = 10
+sigverify_threads = 18
+
+[benchmark]
+cores_per_client = 12
+cpu_pool = [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27,
+            29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51]
+memory_node = 1
+sender_threads = 4
+duration_seconds = 50
+tx_count = 50000
+thread_batch_sleep_ms = 0
+
+[run]
+repetitions = 10
+startup_delay_seconds = 5
+ready_timeout_seconds = 300
+rpc_timeout_seconds = 30

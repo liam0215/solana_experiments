@@ -1,0 +1,25 @@
+version = 1
+name = "one-validator-8"
+validator_count = 1
+hosts = ["192.168.120.7"]
+
+[validator]
+template = "configs/validator.config"
+runtime_kthreads = 8
+banking_threads = 8
+sigverify_threads = 18
+
+[benchmark]
+cores_per_client = 8
+cpu_pool = [5, 7, 9, 11, 13, 15, 17, 19]
+memory_node = 1
+sender_threads = 4
+duration_seconds = 50
+tx_count = 50000
+thread_batch_sleep_ms = 0
+
+[run]
+repetitions = 1
+startup_delay_seconds = 5
+ready_timeout_seconds = 300
+rpc_timeout_seconds = 30
