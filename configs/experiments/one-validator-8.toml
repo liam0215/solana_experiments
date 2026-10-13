@@ -19,7 +19,7 @@ tx_count = 50000
 thread_batch_sleep_ms = 0
 
 [run]
-repetitions = 1
+repetitions = 10
 startup_delay_seconds = 5
 ready_timeout_seconds = 300
 rpc_timeout_seconds = 30
